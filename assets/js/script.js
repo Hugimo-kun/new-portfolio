@@ -10,18 +10,63 @@ document.addEventListener("DOMContentLoaded", function() {
     const DARKMODE_BUTTON = document.getElementById('darkmodeButton');
     let isDarkmode = false;
     const DENSITY = 6000;
-    let particleCount;
-    particleCount = CANVAS.width * CANVAS.height / DENSITY;
+    let particleCount = CANVAS.width * CANVAS.height / DENSITY;
+    const PATH = window.location.pathname;
+    const PATH_NAME = PATH.substring(PATH.lastIndexOf("/") + 1);
+    const PARTICLES_COLORS = {
+        red: {
+            particle: isDarkmode ? "lightcoral" : "crimson",
+            line: (opacity) => isDarkmode ? `rgba(240, 128, 128, ${opacity})` : `rgba(220, 20, 60, ${opacity})`,
+        },
+        blue: {
+            particle: isDarkmode ? "lightskyblue" : "royalblue",
+            line: (opacity) => isDarkmode ? `rgba(135, 206, 250, ${opacity})` : `rgba(65, 105, 225, ${opacity})`,
+        },
+        green: {
+            particle: isDarkmode ? "lightgreen" : "forestgreen",
+            line: (opacity) => isDarkmode ? `rgba(144, 238, 144, ${opacity})` : `rgba(34, 139, 34, ${opacity})`,
+        },
+        yellow: {
+            particle: isDarkmode ? "lightyellow" : "gold",
+            line: (opacity) => isDarkmode ? `rgba(255, 255, 224, ${opacity})` : `rgba(255, 215, 0, ${opacity})`,
+        },
+        purple: {
+            particle: isDarkmode ? "plum" : "purple",
+            line: (opacity) => isDarkmode ? `rgba(221, 160, 221, ${opacity})` : `rgba(128, 0, 128, ${opacity})`,
+        }
+    };
 
     CANVAS.width = CONTAINER.offsetWidth;
     CANVAS.height = CONTAINER.offsetHeight;
 
     function getParticleColor() {
-        return isDarkmode ? "white" : "black";
+        switch (PATH_NAME) {
+            case "index.html":
+                return PARTICLES_COLORS.blue.particle;
+            case "presentation.html":
+                return PARTICLES_COLORS.green.particle;
+            case "tech.html":
+                return PARTICLES_COLORS.red.particle;
+            case "projects.html":
+                return PARTICLES_COLORS.purple.particle;
+            case "contact.html":
+                return PARTICLES_COLORS.yellow.particle;
+        }
     }
 
     function getLineColor(opacity) {
-        return isDarkmode ? `rgba(255, 255, 255, ${opacity})` : `rgba(0, 0, 0, ${opacity})`;
+        switch (PATH_NAME) {
+            case "index.html":
+                return PARTICLES_COLORS.blue.line(opacity);
+            case "presentation.html":
+                return PARTICLES_COLORS.green.line(opacity);
+            case "tech.html":
+                return PARTICLES_COLORS.red.line(opacity);
+            case "projects.html":
+                return PARTICLES_COLORS.purple.line(opacity);
+            case "contact.html":
+                return PARTICLES_COLORS.yellow.line(opacity);
+        }
     }
 
     class Particle {
