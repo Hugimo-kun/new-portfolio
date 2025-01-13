@@ -186,12 +186,8 @@ document.addEventListener("DOMContentLoaded", function() {
     if (isDarkmode === "true") {
         addDarkmode();
         DARKMODE_BUTTON.checked = true;
-        init();
-        animate();
     } else {
         removeDarkmode();
-        init();
-        animate();
     }
 
     function addDarkmode() {
@@ -230,5 +226,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    init();
+    animate();
     animateText();
 })
