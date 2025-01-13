@@ -7,32 +7,32 @@ document.addEventListener("DOMContentLoaded", function() {
     const PARTICLES = [];
     const MOUSE = { x: null, y: null };
     const MAX_DISTANCE = 175;
-    const DARKMODE_BUTTON = document.getElementById('darkmodeButton');
-    let isDarkmode = false;
+    const DARKMODE_BUTTON = document.getElementById('darkmode-toggle');
+    let isDarkmode = localStorage.getItem("isDarkmode");
     const DENSITY = 6000;
     let particleCount = CANVAS.width * CANVAS.height / DENSITY;
     const PATH = window.location.pathname;
     const PATH_NAME = PATH.substring(PATH.lastIndexOf("/") + 1);
     const PARTICLES_COLORS = {
         red: {
-            particle: isDarkmode ? "lightcoral" : "crimson",
-            line: (opacity) => isDarkmode ? `rgba(240, 128, 128, ${opacity})` : `rgba(220, 20, 60, ${opacity})`,
+            particle: () => localStorage.getItem("isDarkmode") === 'true' ? "lightcoral" : "crimson",
+            line: (opacity) => localStorage.getItem("isDarkmode") === 'true' ? `rgba(240, 128, 128, ${opacity})` : `rgba(220, 20, 60, ${opacity})`,
         },
         blue: {
-            particle: isDarkmode ? "lightskyblue" : "royalblue",
-            line: (opacity) => isDarkmode ? `rgba(135, 206, 250, ${opacity})` : `rgba(65, 105, 225, ${opacity})`,
+            particle: () => localStorage.getItem("isDarkmode") === 'true' ? "lightskyblue" : "royalblue",
+            line: (opacity) => localStorage.getItem("isDarkmode") === 'true' ? `rgba(135, 206, 250, ${opacity})` : `rgba(65, 105, 225, ${opacity})`,
         },
         green: {
-            particle: isDarkmode ? "lightgreen" : "forestgreen",
-            line: (opacity) => isDarkmode ? `rgba(144, 238, 144, ${opacity})` : `rgba(34, 139, 34, ${opacity})`,
+            particle: () => localStorage.getItem("isDarkmode") === 'true' ? "lightgreen" : "forestgreen",
+            line: (opacity) => localStorage.getItem("isDarkmode") === 'true' ? `rgba(144, 238, 144, ${opacity})` : `rgba(34, 139, 34, ${opacity})`,
         },
         yellow: {
-            particle: isDarkmode ? "lightyellow" : "gold",
-            line: (opacity) => isDarkmode ? `rgba(255, 255, 224, ${opacity})` : `rgba(255, 215, 0, ${opacity})`,
+            particle: () => localStorage.getItem("isDarkmode") === 'true' ? "lightyellow" : "#BC8F8F",
+            line: (opacity) => localStorage.getItem("isDarkmode") === 'true' ? `rgba(255, 255, 224, ${opacity})` : `rgba(188, 143, 143, ${opacity})`,
         },
         purple: {
-            particle: isDarkmode ? "plum" : "purple",
-            line: (opacity) => isDarkmode ? `rgba(221, 160, 221, ${opacity})` : `rgba(128, 0, 128, ${opacity})`,
+            particle: () => localStorage.getItem("isDarkmode") === 'true' ? "plum" : "purple",
+            line: (opacity) => localStorage.getItem("isDarkmode") === 'true' ? `rgba(221, 160, 221, ${opacity})` : `rgba(128, 0, 128, ${opacity})`,
         }
     };
 
@@ -42,15 +42,15 @@ document.addEventListener("DOMContentLoaded", function() {
     function getParticleColor() {
         switch (PATH_NAME) {
             case "index.html":
-                return PARTICLES_COLORS.blue.particle;
+                return PARTICLES_COLORS.blue.particle();
             case "presentation.html":
-                return PARTICLES_COLORS.green.particle;
+                return PARTICLES_COLORS.green.particle();
             case "tech.html":
-                return PARTICLES_COLORS.red.particle;
+                return PARTICLES_COLORS.red.particle();
             case "projects.html":
-                return PARTICLES_COLORS.purple.particle;
+                return PARTICLES_COLORS.purple.particle();
             case "contact.html":
-                return PARTICLES_COLORS.yellow.particle;
+                return PARTICLES_COLORS.yellow.particle();
         }
     }
 
@@ -183,10 +183,31 @@ document.addEventListener("DOMContentLoaded", function() {
         init();
     })
 
-    /* DARKMODE_BUTTON.addEventListener('click', () => {
-        isDarkmode = !isDarkmode;
-        CONTAINER.classList.toggle('darkmode');
-    }) */
+    if (isDarkmode === "true") {
+        addDarkmode();
+        DARKMODE_BUTTON.checked = true;
+        init();
+        animate();
+    } else {
+        removeDarkmode();
+        init();
+        animate();
+    }
+
+    function addDarkmode() {
+        CONTAINER.classList.add("darkmode");
+        localStorage.setItem("isDarkmode", true);
+    }
+
+    function removeDarkmode() {
+        CONTAINER.classList.remove("darkmode");
+        localStorage.setItem("isDarkmode", false);
+    }
+
+    DARKMODE_BUTTON.addEventListener('click', () => {
+        isDarkmode = localStorage.getItem("isDarkmode");
+        isDarkmode !== "true" ? addDarkmode() : removeDarkmode();
+    })
 
     function animateText() {
         let delay = 100,
@@ -209,7 +230,5 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    init();
-    animate();
     animateText();
 })

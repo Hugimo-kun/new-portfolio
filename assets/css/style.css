@@ -11,7 +11,6 @@ body {
     font-family: "Merriweather";
 }
 
-
 nav {
     display: flex;
     justify-content: space-between;
@@ -30,6 +29,80 @@ nav a img {
 nav ul {
     display: flex;
     list-style: none;
+}
+
+nav ul label {
+    width:60px;
+    height: 30px;
+    background-color: #EAF2F8;
+    border-radius: 15px;
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    margin-right: 10px;
+}
+
+nav ul label:after {
+    content: "";
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+nav ul label svg {
+    position: absolute;
+    width: 30px;
+    z-index: 1;
+    transform: scale(0.8);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+nav ul label svg.sun {
+    transition: 0.3s;
+}
+
+nav ul label svg.moon {
+    right: 0;
+}
+
+nav ul input {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+nav ul input:checked + label {
+    background-color: #242424;
+}
+
+nav ul input:checked + label:after {
+    transform: translateX(+100%);
+    background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+nav ul input:checked + label svg.sun {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+nav ul input:checked + label svg.moon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+nav ul input:not(:checked) + label svg.sun {
+    opacity: 1;
+    transform: scale(1);
+}
+
+nav ul input:not(:checked) + label svg.moon {
+    opacity: 0;
+    transform: scale(0.8);
 }
 
 nav ul li {
