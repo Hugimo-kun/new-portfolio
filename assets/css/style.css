@@ -138,6 +138,22 @@ nav ul li a:hover {
     color: white;
 }
 
+#canvasContainer a {
+    color: black;
+}
+
+#canvasContainer a:hover {
+    color: rgb(56, 56, 56);
+}
+
+#canvasContainer.darkmode a {
+    color: white;
+}
+
+#canvasContainer.darkmode a:hover {
+    color: rgb(221, 221, 221);
+}
+
 #titleContainer {
     padding: 20px;
     backdrop-filter: blur(7px);
@@ -188,6 +204,32 @@ h1 {
     max-width: 100%;
 }
 
+#projectContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 75%;
+    gap: 20px;
+}
+
+#projectContainer article {
+    padding: 20px;
+    backdrop-filter: blur(7px);
+    border: 1px solid black;
+    border-radius: 15px;
+    z-index: 1;
+    text-align: center;
+    max-width: 15%;
+    display: flex;
+    flex-direction: column;
+}
+
+#projectContainer article a img {
+    max-width: 100%;
+    max-height: 100px;
+}
+
 .animated {
     visibility: hidden;
 }
@@ -205,5 +247,19 @@ canvas {
 
     #techContainer article {
         max-width: 15%;
+    }
+
+    #projectContainer {
+        max-width: 95%;
+    }
+
+    #projectContainer article {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 11px;
     }
 }
