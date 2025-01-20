@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let particleCount = CANVAS.width * CANVAS.height / DENSITY;
     const PATH = window.location.pathname;
     const PATH_NAME = PATH.substring(PATH.lastIndexOf("/") + 1);
+    let hamburger = document.querySelector(".hamburger");
     const PARTICLES_COLORS = {
         red: {
             particle: () => localStorage.getItem("isDarkmode") === 'true' ? "lightcoral" : "crimson",
@@ -192,11 +193,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function addDarkmode() {
         CONTAINER.classList.add("darkmode");
+        hamburger.classList.add("darkmode");
         localStorage.setItem("isDarkmode", true);
     }
 
     function removeDarkmode() {
         CONTAINER.classList.remove("darkmode");
+        hamburger.classList.remove("darkmode");
         localStorage.setItem("isDarkmode", false);
     }
 
@@ -225,6 +228,11 @@ document.addEventListener("DOMContentLoaded", function() {
             delayStart += delay * letters.length;
         });
     }
+
+    hamburger.addEventListener("click", function () {
+        hamburger.classList.toggle("is-active");
+        document.querySelector("nav").classList.toggle("is-out");
+    });
 
     init();
     animate();
