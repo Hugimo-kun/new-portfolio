@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio de Hugo Simoneau, développeur web spécialisé en Symfony, Angular et JavaScript.">
     <title>Portfolio Hugo Simoneau</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <section id="navContainer">
         
         <nav>
-            <a href="../index.html">
-                <img src="../assets/images/Logo-Hugo-Simoneau-Blanc.svg" alt="Logo Hugo Simoneau">
+            <a href="index.html">
+                <img src="assets/images/Logo-Hugo-Simoneau-Blanc.svg" alt="Logo Hugo Simoneau">
             </a>
             <ul>
                 <input type="checkbox" name="checkbox" id="darkmode-toggle">
@@ -21,7 +21,7 @@
     
                     <svg viewBox="0 0 24 24" class="moon" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3.32031 11.6835C3.32031 16.6541 7.34975 20.6835 12.3203 20.6835C16.1075 20.6835 19.3483 18.3443 20.6768 15.032C19.6402 15.4486 18.5059 15.6834 17.3203 15.6834C12.3497 15.6834 8.32031 11.654 8.32031 6.68342C8.32031 5.50338 8.55165 4.36259 8.96453 3.32996C5.65605 4.66028 3.32031 7.89912 3.32031 11.6835Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                 </label>
-                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="index.html">Accueil</a></li>
                 <li><a href="presentation.html">Présentation</a></li>
                 <li><a href="tech.html">Technologies</a></li>
                 <li><a href="projects.html">Projets</a></li>
@@ -36,50 +36,34 @@
     </section>
 
     <section id="canvasContainer">
-        <div class="titleContainer">
-            <h1 class="animated">Technologies</h1>
+        <div class="titleContainer Project">
+            <h1 class="animated">Projets</h1>
         </div>
 
-        <div id="techContainer">
+        <div class="paragraphContainer">
+            <p>Voici la liste de certains projets où j'ai travaillé dessus.</p>
+        </div>
+
+        <div id="projectContainer">
             <article>
-                <img src="../assets/images/html-5-logo-svgrepo-com.svg" alt="HTML 5">
-                <p>HTML</p>
+                <a href="https://nowa-innovation.com"><img src="assets/images/logo_nowa.webp" alt="Nowa Innovation">Nowa Innovation</a>
+                <p>J'ai travaillé dans cette start-up d'accompagnement professionnel pour mon stage durant 2 mois, où j'ai utilisé du Symfony pour le back-end et l'API et Angular pour le front-end.</p>
             </article>
             <article>
-                <img src="../assets/images/css-3-svgrepo-com.svg" alt="CSS 3">
-                <p>CSS</p>
+                <a href="https://github.com/Hugimo-kun/PokemonAngular"><img src="assets/images/pokeball-pokemon-svgrepo-com.svg" alt="Pokeball">Pokemon Angular</a>
+                <p>Lors de ma formation, j'ai créé un petit site de Pokémons avec Angular en utilisant une API publique qui est déployé.</p>
             </article>
             <article>
-                <img src="../assets/images/js-official-svgrepo-com.svg" alt="JavaScript">
-                <p>JavaScript</p>
+                <a href="https://github.com/Hugimo-kun/MangaCollec"><img src="assets/images/Logo-mangaCollec.webp" alt="Logo MangaCollec">MangaCollec</a>
+                <p>Projet de collection de mangas où on peut dire si on a collectionné et lu un manga en particulier. Fait en Symfony pour un examen durant la formation. Il est possible que je le déploie dans le futur tellement j'ai adoré faire ce projet.</p>
             </article>
             <article>
-                <img src="../assets/images/symfony-svgrepo-com.svg" alt="Symfony">
-                <p>Symfony</p>
-            </article>
-            <article>
-                <img src="../assets/images/php-svgrepo-com.svg" alt="Php">
-                <p>Php</p>
-            </article>
-            <article>
-                <img src="../assets/images/twig-svgrepo-com.svg" alt="Twig">
-                <p>Twig</p>
-            </article>
-            <article>
-                <img src="../assets/images/angular-svgrepo-com.svg" alt="Angular">
-                <p>Angular</p>
-            </article>
-            <article>
-                <img src="../assets/images/typescript-icon-svgrepo-com.svg" alt="TypeScript">
-                <p>TypeScript</p>
-            </article>
-            <article>
-                <img src="../assets/images/mysql-svgrepo-com.svg" alt="MySQL">
-                <p>MySQL</p>
+                <a href="https://github.com/Hugimo-kun/Quizz-Pays"><img src="assets/images/question-mark-svgrepo-com.svg" alt="Point d'intérrogation">Quizz Pays</a>
+                <p>Au tout début de ma formation, j'ai fait en JS un petit quizz où il faut deviner le pays avec un système d'indices et de points qui est lui aussi déployé.</p>
             </article>
         </div>
     </section>
 
-    <script src="../assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
