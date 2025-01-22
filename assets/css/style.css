@@ -172,6 +172,10 @@ nav ul li a:hover {
     z-index: 1;
 }
 
+.titleContainer.Project {
+    margin-top: 20px;
+}
+
 h1 {
     text-align: center;
     font-size: xx-large;
@@ -301,8 +305,16 @@ canvas {
         font-size: 17px;
     }
 
+    #canvasContainer {
+        scrollbar-width: none;
+    }
+
     .titleContainer.Project {
         margin-top: 600px;
+    }
+
+    .titleContainer.Tech {
+        margin-top: 100px;
     }
 
     .paragraphContainer {
@@ -311,6 +323,7 @@ canvas {
 
     #techContainer {
         width: 75%;
+        margin-bottom: 5px;
     }
 
     #techContainer article {
@@ -489,6 +502,14 @@ canvas {
 
     nav ul label {
         margin-right: 0;
+    }
+
+    .titleContainer.Tech {
+        margin-top: 0;
+    }
+
+    .titleContainer.Project {
+        margin-top: 675px;
     }
 
     .titleContainer {
