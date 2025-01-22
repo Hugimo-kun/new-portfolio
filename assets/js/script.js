@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function getParticleColor() {
         switch (PATH_NAME) {
-            case "index.html":
+            case "hugosimoneau.fr":
                 return PARTICLES_COLORS.blue.particle();
             case "presentation.html":
                 return PARTICLES_COLORS.green.particle();
