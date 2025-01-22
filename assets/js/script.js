@@ -42,8 +42,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function getParticleColor() {
         switch (PATH_NAME) {
-            case "":
-                return PARTICLES_COLORS.blue.particle();
             case "presentation.html":
                 return PARTICLES_COLORS.green.particle();
             case "tech.html":
@@ -52,13 +50,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 return PARTICLES_COLORS.purple.particle();
             case "contact.html":
                 return PARTICLES_COLORS.yellow.particle();
+            default :
+            return PARTICLES_COLORS.blue.particle();
         }
     }
 
     function getLineColor(opacity) {
         switch (PATH_NAME) {
-            case "":
-                return PARTICLES_COLORS.blue.line(opacity);
             case "presentation.html":
                 return PARTICLES_COLORS.green.line(opacity);
             case "tech.html":
@@ -67,6 +65,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 return PARTICLES_COLORS.purple.line(opacity);
             case "contact.html":
                 return PARTICLES_COLORS.yellow.line(opacity);
+            default :
+                return PARTICLES_COLORS.blue.line(opacity);
         }
     }
 
