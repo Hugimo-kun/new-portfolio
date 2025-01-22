@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function getParticleColor() {
         switch (PATH_NAME) {
-            case "hugosimoneau.fr":
+            case "":
                 return PARTICLES_COLORS.blue.particle();
             case "presentation.html":
                 return PARTICLES_COLORS.green.particle();
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function getLineColor(opacity) {
         switch (PATH_NAME) {
-            case "index.html":
+            case "":
                 return PARTICLES_COLORS.blue.line(opacity);
             case "presentation.html":
                 return PARTICLES_COLORS.green.line(opacity);
