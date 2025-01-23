@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const PATH = window.location.pathname;
     const PATH_NAME = PATH.substring(PATH.lastIndexOf("/") + 1);
     let hamburger = document.querySelector(".hamburger");
+    const CONTENT_CONTAINER = document.querySelector(".content");
     const PARTICLES_COLORS = {
         red: {
             particle: () => localStorage.getItem("isDarkmode") === 'true' ? "lightcoral" : "crimson",
@@ -37,8 +38,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
+    const NAV_HEIGHT = document.querySelector('nav').offsetHeight;
     CANVAS.width = CONTAINER.offsetWidth;
-    CANVAS.height = CONTAINER.offsetHeight;
+    if (window.innerWidth > 768) {
+        CANVAS.height = CONTAINER.offsetHeight - NAV_HEIGHT;
+    } else {
+        CANVAS.height = CONTAINER.offsetHeight;
+    }
 
     function getParticleColor() {
         switch (PATH_NAME) {
@@ -167,13 +173,13 @@ document.addEventListener("DOMContentLoaded", function() {
         requestAnimationFrame(animate);
     }
 
-    CANVAS.addEventListener('mousemove', (event) => {
+    CONTENT_CONTAINER.addEventListener('mousemove', (event) => {
         const NAV_HEIGHT = document.querySelector('nav').offsetHeight;
         MOUSE.x = event.clientX;
         MOUSE.y = event.clientY - NAV_HEIGHT;
     })
 
-    CANVAS.addEventListener('mouseleave', () => {
+    CONTENT_CONTAINER.addEventListener('mouseleave', () => {
         MOUSE.x = null;
         MOUSE.y = null;
     })
@@ -234,6 +240,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector("nav").classList.toggle("is-out");
     });
 
+    resize();
     init();
     animate();
     animateText();
