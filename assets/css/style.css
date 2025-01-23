@@ -312,16 +312,20 @@ canvas {
         font-size: 17px;
     }
 
-    #canvasContainer .content#project .titleContainer {
-        margin-top: 10px;
+    #canvasContainer {
+        scrollbar-width: none;
     }
 
     #canvasContainer .content#project {
         height: auto;
     }
 
-    #canvasContainer {
-        scrollbar-width: none;
+    #canvasContainer .content#project .titleContainer, #canvasContainer .content#presentation .titleContainer {
+        margin-top: 10px;
+    }
+
+    #canvasContainer .content#presentation .paragraphContainer {
+        margin-bottom: 10px;
     }
 
     .paragraphContainer {
