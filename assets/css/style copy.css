@@ -1,0 +1,546 @@
+@font-face {
+    font-family: "Merriweather";
+    src: url("../fonts/Merriweather-Regular.ttf");
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: "Merriweather";
+    font-size: 20px;
+    overflow: hidden;
+}
+
+#navContainer {
+    display: flex;
+    height: 10%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(24, 1, 29);
+    color: white;
+    align-items: center;
+    padding: 0 10px;
+    z-index: 2;
+    width: 100%;
+}
+
+nav a img {
+    max-width: 100px;
+    height: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul label {
+    width:60px;
+    height: 30px;
+    background-color: #EAF2F8;
+    border-radius: 15px;
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    margin-right: 10px;
+}
+
+nav ul label:after {
+    content: "";
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+nav ul label svg {
+    position: absolute;
+    width: 30px;
+    z-index: 1;
+    transform: scale(0.8);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+nav ul label svg.sun {
+    transition: 0.3s;
+}
+
+nav ul label svg.moon {
+    right: 0;
+}
+
+nav ul input {
+    display: none;
+}
+
+nav ul input:checked + label {
+    background-color: #242424;
+}
+
+nav ul input:checked + label:after {
+    transform: translateX(+100%);
+    background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+nav ul input:checked + label svg.sun {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+nav ul input:checked + label svg.moon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+nav ul input:not(:checked) + label svg.sun {
+    opacity: 1;
+    transform: scale(1);
+}
+
+nav ul input:not(:checked) + label svg.moon {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+nav ul li {
+    margin: 5px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li a:hover {
+    color: rgb(221, 221, 221);
+}
+
+#canvasContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #EAF2F8;
+    position: relative;
+    color: black;
+    margin: 0;
+    flex-direction: column;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+#canvasContainer.darkmode {
+    background-color: #2C3E50;
+    color: white;
+}
+
+#canvasContainer a {
+    color: black;
+}
+
+#canvasContainer a:hover {
+    color: rgb(56, 56, 56);
+}
+
+#canvasContainer.darkmode a {
+    color: white;
+}
+
+#canvasContainer.darkmode a:hover {
+    color: rgb(221, 221, 221);
+}
+
+.hamburger {
+    display: none;
+}
+
+.titleContainer {
+    padding: 20px;
+    backdrop-filter: blur(7px);
+    border: 1px solid black;
+    border-radius: 15px;
+    z-index: 1;
+}
+
+.titleContainer.Project {
+    margin-top: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: xx-large;
+}
+
+.paragraphContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 50%;
+    padding: 20px;
+    backdrop-filter: blur(7px);
+    border: 1px solid black;
+    border-radius: 15px;
+    z-index: 1;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#techContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 60%;
+    gap: 20px;
+}
+
+#techContainer article {
+    padding: 20px;
+    backdrop-filter: blur(7px);
+    border: 1px solid black;
+    border-radius: 15px;
+    z-index: 1;
+    text-align: center;
+    max-width: 12%;
+}
+
+#techContainer article img {
+    max-width: 100%;
+}
+
+#projectContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 20px;
+}
+
+#projectContainer article {
+    padding: 20px;
+    backdrop-filter: blur(7px);
+    border: 1px solid black;
+    border-radius: 15px;
+    z-index: 1;
+    text-align: center;
+    max-width: 18%;
+    display: flex;
+    flex-direction: column;
+}
+
+#projectContainer article a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#projectContainer article a img {
+    max-width: 100%;
+    max-height: 100px;
+    margin-bottom: 10px;
+}
+
+#contactContainer {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 50%;
+    gap: 20px;
+}
+
+#contactContainer article {
+    padding: 20px;
+    backdrop-filter: blur(7px);
+    border: 1px solid black;
+    border-radius: 15px;
+    z-index: 1;
+    text-align: center;
+    max-width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+#contactContainer article a svg {
+    max-width: 100%;
+    max-height: 100px;
+    fill: black;
+}
+
+#contactContainer article a svg:hover {
+    fill: rgb(56, 56, 56);
+}
+
+#canvasContainer.darkmode #contactContainer article a svg {
+    fill: white;
+}
+
+#canvasContainer.darkmode #contactContainer article a svg:hover {
+    fill: rgb(221, 221, 221);
+}
+
+.animated {
+    visibility: hidden;
+}
+
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 1080px) {
+    body {
+        font-size: 17px;
+    }
+
+    #canvasContainer {
+        scrollbar-width: none;
+    }
+
+    .titleContainer.Project {
+        margin-top: 600px;
+    }
+
+    .titleContainer.Tech {
+        margin-top: 100px;
+    }
+
+    .paragraphContainer {
+        padding: 5px;
+    }
+
+    #techContainer {
+        width: 75%;
+        margin-bottom: 5px;
+    }
+
+    #techContainer article {
+        max-width: 15%;
+    }
+
+    #projectContainer {
+        max-width: 95%;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    #projectContainer article {
+        padding: 15px;
+        max-width: 75%;
+    }
+
+    #contactContainer {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #navContainer {
+        display: flex;
+        flex-direction: row-reverse;
+        z-index: 2;
+        height: 0;
+        justify-content: flex-start;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        transition-duration: 0.15s;
+        transition-timing-function: linear;
+        text-transform: none;
+        border: 0;
+        margin: 0;
+        overflow: visible;
+        z-index: 2;
+        backdrop-filter: blur(7px);
+    }
+
+    .hamburger.is-active .hamburger-inner,
+    .hamburger.is-active .hamburger-inner::before,
+    .hamburger.is-active .hamburger-inner::after {
+        background-color: #000000;
+    }
+
+    .hamburger-box {
+        width: 40px;
+        height: 24px;
+        display: inline-block;
+        position: relative;
+        border: 1px solid black;
+        padding: 5px;
+        z-index: 2;
+    }
+
+    .hamburger-inner {
+        display: block;
+        top: 50%;
+        margin-top: -2px;
+    }
+
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        width: 40px;
+        height: 4px;
+        background-color: #000000;
+        border-radius: 4px;
+        position: absolute;
+        transition-property: transform;
+        transition-duration: 10s;
+        transition-timing-function: ease;
+    }
+
+    .hamburger.darkmode .hamburger-inner,
+    .hamburger.darkmode .hamburger-inner::before,
+    .hamburger.darkmode .hamburger-inner::after {
+        background-color: white;
+    }
+
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        content: "";
+        display: block;
+    }
+
+    .hamburger-inner::before {
+        top: -10px;
+    }
+
+    .hamburger-inner::after {
+        bottom: -10px;
+    }
+
+    .hamburger--vortex .hamburger-inner {
+        transition-duration: 0.2s;
+        transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .hamburger--vortex .hamburger-inner::before,
+    .hamburger--vortex .hamburger-inner::after {
+        transition-duration: 0s;
+        transition-delay: 0.1s;
+        transition-timing-function: linear;
+    }
+
+    .hamburger--vortex .hamburger-inner::before {
+        transition-property: top, opacity;
+    }
+
+    .hamburger--vortex .hamburger-inner::after {
+        transition-property: bottom, transform;
+    }
+
+    .hamburger--vortex.is-active .hamburger-inner {
+        transform: rotate(765deg);
+        transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .hamburger--vortex.is-active .hamburger-inner::before,
+    .hamburger--vortex.is-active .hamburger-inner::after {
+        transition-delay: 0s;
+    }
+
+    .hamburger--vortex.is-active .hamburger-inner::before {
+        top: 0;
+        opacity: 0;
+    }
+
+    .hamburger--vortex.is-active .hamburger-inner::after {
+        bottom: 0;
+        transform: rotate(90deg);
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 0;
+        height: 100vh;
+        padding: 0;
+        transition: width 0.35s ease-in-out, transform 0.35s ease-in-out, opacity 0.35s ease-in-out, visibility 0.35s ease-in-out;
+        transform: translateX(100%);
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+        overflow: hidden;
+    }
+
+    nav a img {
+        margin-top: 10px;
+    }
+
+    nav.is-out {
+        transition: transform 0.35s ease-in-out, width 0.35s ease-in-out, opacity 0.35s ease-in-out, visibility 0.35s ease-in-out;
+        transform: translateX(0);
+        opacity: 1;
+        width: 50%;
+        pointer-events: auto;
+        visibility: visible;
+    }
+
+    nav ul {
+        flex-direction: column;
+        height: 75%;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0;
+    }
+
+    nav ul label {
+        margin-right: 0;
+    }
+
+    .titleContainer.Tech {
+        margin-top: 0;
+    }
+
+    .titleContainer.Project {
+        margin-top: 675px;
+    }
+
+    .titleContainer {
+        padding: 10px;
+    }
+
+    #projectContainer {
+        width: 100%;
+    }
+
+    #techContainer {
+        width: 100%;
+    }
+
+    #contactContainer {
+        width: 80%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #contactContainer article {
+        max-width: 30%;
+    }
+}
+
+@media screen and (max-width: 468px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: x-large;
+    }
+}
