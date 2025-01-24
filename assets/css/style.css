@@ -222,8 +222,12 @@ h1 {
     max-width: 100%;
 }
 
+.content#project .titleContainer {
+    margin-top: 10px;
+}
+
 #projectContainer {
-    margin-top: 20px;
+    margin: 20px 0;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
