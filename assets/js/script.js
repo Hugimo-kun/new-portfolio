@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const PATH_NAME = PATH.substring(PATH.lastIndexOf("/") + 1);
     let hamburger = document.querySelector(".hamburger");
     const CONTENT_CONTAINER = document.querySelector(".content");
+    const FR_BUTTON = document.getElementById("frButton");
+    const EN_BUTTON = document.getElementById("enButton");
     const PARTICLES_COLORS = {
         red: {
             particle: () => localStorage.getItem("isDarkmode") === 'true' ? "lightcoral" : "crimson",
@@ -214,6 +216,42 @@ document.addEventListener("DOMContentLoaded", function() {
         isDarkmode !== "true" ? addDarkmode() : removeDarkmode();
     })
 
+    FR_BUTTON.addEventListener('click', () => {
+        localStorage.setItem("language", "FR");
+        changeLanguage("FR");
+    })
+
+    EN_BUTTON.addEventListener('click', () => {
+        localStorage.setItem("language", "EN");
+        changeLanguage("EN");
+    })
+
+    function changeLanguage(language) {
+        if (language === "FR" || language === null) {
+            document.querySelectorAll(".EN").forEach(function (elem) {
+                elem.style.display = "none";
+                elem.style.visibility = "hidden";
+            });
+            document.querySelectorAll(".FR").forEach(function (elem) {
+                elem.style.display = "block";
+                elem.style.visibility = "visible";
+            });
+            FR_BUTTON.classList.add("active");
+            EN_BUTTON.classList.remove("active");
+        } else {
+            document.querySelectorAll(".FR").forEach(function (elem) {
+                elem.style.display = "none";
+                elem.style.visibility = "hidden";
+            });
+            document.querySelectorAll(".EN").forEach(function (elem) {
+                elem.style.display = "block";
+                elem.style.visibility = "visible";
+            });
+            EN_BUTTON.classList.add("active");
+            FR_BUTTON.classList.remove("active");
+        }
+    }
+
     function animateText() {
         let delay = 100,
             delayStart = 0,
@@ -221,6 +259,10 @@ document.addEventListener("DOMContentLoaded", function() {
             letters;
 
         document.querySelectorAll(".animated").forEach(function (elem) {
+            if (window.getComputedStyle(elem).display === "none") {
+                return;
+            }
+
             contents = elem.textContent.trim();
             elem.textContent = "";
             letters = contents.split("");
@@ -243,5 +285,6 @@ document.addEventListener("DOMContentLoaded", function() {
     resize();
     init();
     animate();
+    changeLanguage(localStorage.getItem("language"));
     animateText();
 })
