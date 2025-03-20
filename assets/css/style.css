@@ -122,14 +122,17 @@ nav ul div #frButton, nav ul div #enButton {
     margin: 0;
     padding: 5px;
     cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0);
 }
 
 nav ul div #frButton:hover, nav ul div #enButton:hover {
     color: rgb(221, 221, 221);
+    background-color: rgb(39, 23, 131);
 }
 
-nav ul div .active {
-    border: 2px solid pink;
+nav ul div #frButton.active, nav ul div #enButton.active {
+    border: 2px solid white;
     border-radius: 50%;
 }
 
