@@ -22,10 +22,15 @@
     
                     <svg viewBox="0 0 24 24" class="moon" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3.32031 11.6835C3.32031 16.6541 7.34975 20.6835 12.3203 20.6835C16.1075 20.6835 19.3483 18.3443 20.6768 15.032C19.6402 15.4486 18.5059 15.6834 17.3203 15.6834C12.3497 15.6834 8.32031 11.654 8.32031 6.68342C8.32031 5.50338 8.55165 4.36259 8.96453 3.32996C5.65605 4.66028 3.32031 7.89912 3.32031 11.6835Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                 </label>
-                <li><a href="/">Accueil</a></li>
-                <li><a href="/presentation.html">Présentation</a></li>
+                <div>
+                    <p id="frButton">FR</p>
+                    <hr>
+                    <p id="enButton">EN</p>
+                </div>
+                <li><a href="/" class="FR">Accueil</a><a href="/" class="EN">Home</a></li>
+                <li><a href="/presentation.html" class="FR">Présentation</a><a href="/presentation.html" class="EN">Presentation</a></li>
                 <li><a href="/tech.html">Technologies</a></li>
-                <li><a href="/projects.html">Projets</a></li>
+                <li><a href="/projects.html" class="FR">Projets</a><a href="/projects.html" class="EN">Projects</a></li>
                 <li><a href="/contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -43,25 +48,30 @@
             </div>
 
             <div class="paragraphContainer">
-                <p>Voici la liste de certains projets où j'ai travaillé dessus.</p>
+                <p class="FR">Voici la liste de certains projets où j'ai travaillé dessus.</p>
+                <p class="EN">There is the list of few projects where I worked on.</p>
             </div>
 
             <div id="projectContainer">
                 <article>
                     <a href="https://nowa-innovation.com"><img src="assets/images/logo_nowa.webp" alt="Nowa Innovation">Nowa Innovation</a>
-                    <p>J'ai travaillé dans cette start-up d'accompagnement professionnel pour mon stage durant 2 mois, où j'ai utilisé du Symfony pour le back-end et l'API et Angular pour le front-end.</p>
+                    <p class="FR">J'ai travaillé dans cette start-up d'accompagnement professionnel pour mon stage durant 2 mois, où j'ai utilisé du Symfony pour le back-end et pour l'API et Angular pour le front-end.</p>
+                    <p class="EN">I worked in this professional coaching start-up for my internship for 2 months, where I used Symfony for the back-end and for the API and Angular for the front-end.</p>
                 </article>
                 <article>
                     <a href="https://github.com/Hugimo-kun/PokemonAngular"><img src="assets/images/pokeball-pokemon-svgrepo-com.svg" alt="Pokeball">Pokemon Angular</a>
-                    <p>Lors de ma formation, j'ai créé un petit site de Pokémons avec Angular en utilisant une API publique qui est déployé.</p>
+                    <p class="FR">Lors de ma formation, j'ai créé un petit site de Pokémons avec Angular qui est déployé en utilisant une API publique.</p>
+                    <p class="EN">During my training, I created a small site of Pokémons with Angular which is online using a public API.</p>
                 </article>
                 <article>
                     <a href="https://github.com/Hugimo-kun/MangaCollec"><img src="assets/images/Logo-mangaCollec.webp" alt="Logo MangaCollec">MangaCollec</a>
-                    <p>Projet de collection de mangas où on peut dire si on a collectionné et lu un manga en particulier. Fait en Symfony pour un examen durant la formation. Il est possible que je le déploie dans le futur tellement j'ai adoré faire ce projet.</p>
+                    <p class="FR">Projet de collection de mangas où on peut dire si on a collectionné et lu un manga en particulier. Fait en Symfony pour un examen durant la formation. Il est possible que je le déploie dans le futur tellement j'ai adoré faire ce projet.</p>
+                    <p class="EN">Manga collection project where you can tell if you have collected and read a specific manga. Done in Symfony for an exam during my training. It is possible that I will deploy it in the future because I loved doing this project.</p>
                 </article>
                 <article>
                     <a href="https://github.com/Hugimo-kun/Quizz-Pays"><img src="assets/images/question-mark-svgrepo-com.svg" alt="Point d'intérrogation">Quizz Pays</a>
-                    <p>Au tout début de ma formation, j'ai fait en JS un petit quizz où il faut deviner le pays avec un système d'indices et de points qui est lui aussi déployé.</p>
+                    <p class="FR">Au tout début de ma formation, j'ai fait en JS un petit quizz où il faut deviner le pays avec une image et un système d'indices et de points. Il est aussi déployé.</p>
+                    <p class="EN">At the begining of my training, I did in JS a small quizz where you have to guess the country with a picture and a clue system and points. It's also online.</p>
                 </article>
             </div>
         </div>
