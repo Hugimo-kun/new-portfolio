@@ -246,6 +246,9 @@ h1 {
     z-index: 1;
     text-align: center;
     max-width: 12%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #techContainer article img {
